@@ -27,7 +27,6 @@
 // @grant             GM_setValue
 // @grant             GM_xmlhttpRequest
 // @grant             GM_log
-// @charset		      UTF-8
 // @license           gpl-3.0
 
 
