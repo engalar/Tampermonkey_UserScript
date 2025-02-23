@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              少废话 - 全网VIP视频免费看
 // @namespace         http://tampermonkey.net/
-// @version           4.1.0
+// @version           4.1.1
 // @description       少废话 - 全网VIP视频免费看。支持：所有主流视频网站；
 // @author            sfh
 // @match             *://*.youku.com/*
@@ -171,7 +171,7 @@ const superVip = (function () {
                 host: "v.qq.com",
                 container: "#mod_player,#player-container,.container-player",
                 name: "QQ",
-                displayNodes: ["#mask_layer", ".mod_vip_popup", "#mask_layer", ".panel-tip-pay", ".txp_videos_container"]
+                displayNodes: ["#mask_layer", ".mod_vip_popup", "#mask_layer", ".panel-tip-pay", ".txp_videos_container", ".preview-mini-player"]
             },
             {
                 host: "m.v.qq.com",
@@ -700,6 +700,11 @@ const superVip = (function () {
     }
 
     class QQConsumer extends BaseConsumer {
+        /*         constructor() {
+            super();
+            util.findTargetEle('.preview-mini-player')
+                .then((container) => container.remove());
+        } */
         // 从URL中提取SeriesId（如mcv8hkc8zk8lnov）
         getSeriesId() {
             const pathParts = window.location.pathname.split('/');
