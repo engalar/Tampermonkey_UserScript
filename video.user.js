@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              少废话 - 全网VIP视频免费看
 // @namespace         http://tampermonkey.net/
-// @version           4.0.0
+// @version           4.1.0
 // @description       少废话 - 全网VIP视频免费看。支持：所有主流视频网站；
 // @author            sfh
 // @match             *://*.youku.com/*
@@ -166,140 +166,141 @@ const superVip = (function () {
             },
 
         ],
-        playerContainers: [{
-            host: "v.qq.com",
-            container: "#mod_player,#player-container,.container-player",
-            name: "Default",
-            displayNodes: ["#mask_layer", ".mod_vip_popup", "#mask_layer", ".panel-tip-pay", ".txp_videos_container"]
-        },
-                           {
-                               host: "m.v.qq.com",
-                               container: ".mod_player,#player",
-                               name: "Default",
-                               displayNodes: [".mod_vip_popup", "[class^=app_],[class^=app-],[class*=_app_],[class*=-app-],[class$=_app],[class$=-app]", "div[dt-eid=open_app_bottom]", "div.video_function.video_function_new", "a[open-app]", "section.mod_source", "section.mod_box.mod_sideslip_h.mod_multi_figures_h,section.mod_sideslip_privileges,section.mod_game_rec", ".at-app-banner"]
-                           },
+        playerContainers: [
+            {
+                host: "v.qq.com",
+                container: "#mod_player,#player-container,.container-player",
+                name: "QQ",
+                displayNodes: ["#mask_layer", ".mod_vip_popup", "#mask_layer", ".panel-tip-pay", ".txp_videos_container"]
+            },
+            {
+                host: "m.v.qq.com",
+                container: ".mod_player,#player",
+                name: "Default",
+                displayNodes: [".mod_vip_popup", "[class^=app_],[class^=app-],[class*=_app_],[class*=-app-],[class$=_app],[class$=-app]", "div[dt-eid=open_app_bottom]", "div.video_function.video_function_new", "a[open-app]", "section.mod_source", "section.mod_box.mod_sideslip_h.mod_multi_figures_h,section.mod_sideslip_privileges,section.mod_game_rec", ".at-app-banner"]
+            },
 
-                           {
-                               host: "w.mgtv.com",
-                               container: "#mgtv-player-wrap",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "www.mgtv.com",
-                               container: "#mgtv-player-wrap",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "m.mgtv.com",
-                               container: ".video-area",
-                               name: "Default",
-                               displayNodes: ["div[class^=mg-app]", ".video-area-bar", ".open-app-popup"]
-                           },
-                           {
-                               host: "www.bilibili.com",
-                               container: "#player_module,#bilibiliPlayer,#bilibili-player",
-                               name: "Bilibili",
-                               displayNodes: []
-                           },
-                           {
-                               host: "m.bilibili.com",
-                               container: ".player-wrapper,.player-container,.mplayer",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "www.iqiyi.com",
-                               container: "#flashbox",
-                               name: "Default",
-                               displayNodes: ["#playerPopup", "div[class^=qy-header-login-pop]", "section[class^=modal-cover_]", ".toast"]
-                           },
-                           {
-                               host: "m.iqiyi.com",
-                               container: ".m-video-player-wrap",
-                               name: "Default",
-                               displayNodes: ["div.m-iqyGuide-layer", "a[down-app-android-url]", "[name=m-extendBar]", "[class*=ChannelHomeBanner]", "section.m-hotWords-bottom"]
-                           },
-                           {
-                               host: "www.iq.com",
-                               container: ".intl-video-wrap",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "v.youku.com",
-                               container: "#player",
-                               name: "Default",
-                               displayNodes: ["#iframaWrapper", "#checkout_counter_mask", "#checkout_counter_popup"]
-                           },
-                           {
-                               host: "m.youku.com",
-                               container: "#player,.h5-detail-player",
-                               name: "Default",
-                               displayNodes: [".callEnd_box", ".h5-detail-guide", ".h5-detail-vip-guide"]
-                           },
-                           {
-                               host: "tv.sohu.com",
-                               container: "#player",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "film.sohu.com",
-                               container: "#playerWrap",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "www.le.com",
-                               container: "#le_playbox",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "video.tudou.com",
-                               container: ".td-playbox",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "v.pptv.com",
-                               container: "#pptv_playpage_box",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "vip.pptv.com",
-                               container: ".w-video",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "www.wasu.cn",
-                               container: "#flashContent",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "www.acfun.cn",
-                               container: "#player",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "vip.1905.com",
-                               container: "#player,#vodPlayer",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                           {
-                               host: "www.1905.com",
-                               container: "#player,#vodPlayer",
-                               name: "Default",
-                               displayNodes: []
-                           },
-                          ]
+            {
+                host: "w.mgtv.com",
+                container: "#mgtv-player-wrap",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "www.mgtv.com",
+                container: "#mgtv-player-wrap",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "m.mgtv.com",
+                container: ".video-area",
+                name: "Default",
+                displayNodes: ["div[class^=mg-app]", ".video-area-bar", ".open-app-popup"]
+            },
+            {
+                host: "www.bilibili.com",
+                container: "#player_module,#bilibiliPlayer,#bilibili-player",
+                name: "Bilibili",
+                displayNodes: []
+            },
+            {
+                host: "m.bilibili.com",
+                container: ".player-wrapper,.player-container,.mplayer",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "www.iqiyi.com",
+                container: "#flashbox",
+                name: "Default",
+                displayNodes: ["#playerPopup", "div[class^=qy-header-login-pop]", "section[class^=modal-cover_]", ".toast"]
+            },
+            {
+                host: "m.iqiyi.com",
+                container: ".m-video-player-wrap",
+                name: "Default",
+                displayNodes: ["div.m-iqyGuide-layer", "a[down-app-android-url]", "[name=m-extendBar]", "[class*=ChannelHomeBanner]", "section.m-hotWords-bottom"]
+            },
+            {
+                host: "www.iq.com",
+                container: ".intl-video-wrap",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "v.youku.com",
+                container: "#player",
+                name: "Default",
+                displayNodes: ["#iframaWrapper", "#checkout_counter_mask", "#checkout_counter_popup"]
+            },
+            {
+                host: "m.youku.com",
+                container: "#player,.h5-detail-player",
+                name: "Default",
+                displayNodes: [".callEnd_box", ".h5-detail-guide", ".h5-detail-vip-guide"]
+            },
+            {
+                host: "tv.sohu.com",
+                container: "#player",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "film.sohu.com",
+                container: "#playerWrap",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "www.le.com",
+                container: "#le_playbox",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "video.tudou.com",
+                container: ".td-playbox",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "v.pptv.com",
+                container: "#pptv_playpage_box",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "vip.pptv.com",
+                container: ".w-video",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "www.wasu.cn",
+                container: "#flashContent",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "www.acfun.cn",
+                container: "#player",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "vip.1905.com",
+                container: "#player,#vodPlayer",
+                name: "Default",
+                displayNodes: []
+            },
+            {
+                host: "www.1905.com",
+                container: "#player,#vodPlayer",
+                name: "Default",
+                displayNodes: []
+            },
+        ]
     };
 
     class BaseConsumer {
@@ -695,6 +696,44 @@ const superVip = (function () {
             // 构建目标剧集的 URL
             const targetUrl = __NEXT_DATA__.page.replace('[videoId]', `ep${episode}`);
             window.location.href = targetUrl; // 跳转到目标 URL
+        }
+    }
+
+    class QQConsumer extends BaseConsumer {
+        // 从URL中提取SeriesId（如mcv8hkc8zk8lnov）
+        getSeriesId() {
+            const pathParts = window.location.pathname.split('/');
+            // 预期URL结构：/x/cover/SeriesId/EpId.html
+            if (pathParts.length >= 5 && pathParts[1] === 'x' && pathParts[2] === 'cover') {
+                return pathParts[3]; // 返回SeriesId
+            }
+            console.error("无法从URL中提取SeriesId，请检查URL结构");
+            return null;
+        }
+
+        // 从URL中提取当前剧集ID（如v0048tkd15x）
+        getCurrentEpisode() {
+            const pathParts = window.location.pathname.split('/');
+            if (pathParts.length >= 5 && pathParts[1] === 'x' && pathParts[2] === 'cover') {
+                const epPart = pathParts[4];
+                // 去除末尾的.html后缀
+                return epPart.replace(/\.html$/, '');
+            }
+            console.error("无法从URL中提取当前剧集ID，请检查URL结构");
+            return null;
+        }
+
+        // 跳转到指定剧集
+        jumpToEpisode(episode) {
+            const pathParts = window.location.pathname.split('/');
+            if (pathParts.length >= 5 && pathParts[1] === 'x' && pathParts[2] === 'cover') {
+                // 替换EpId并保留其他路径部分
+                pathParts[4] = `${episode}.html`;
+                const newUrl = new URL(window.location.origin + pathParts.join('/'));
+                window.location.href = newUrl.href;
+            } else {
+                console.error("当前页面URL结构不符合要求，跳转失败");
+            }
         }
     }
 
